@@ -1,0 +1,11 @@
+# Replace 'YourUsername' with your actual GitHub handle
+# Replace 'your-repo' with your repository name
+# git remote set-url origin https://YourUsername@github.com/YourUsername/your-repo.git
+
+# Replace 'YourUsername' with your actual GitHub handle
+# Replace 'your-repo' with your repository name
+
+#!/bin/bash
+git remote set-url origin https://github.com/papateacher2021-cmd/my1stProject.git
+
+git push -u origin main

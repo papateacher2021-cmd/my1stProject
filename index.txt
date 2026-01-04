@@ -1,1 +1,109 @@
 Hello Git
+
+Ok, many thanks for the kind and pacient advice. It gave me clues to investigate...
+After some try and error this is what worked: 
+git remote set-url origin https://github.com/myusername-cmd/myProyectName.git 
+. and then 
+git push -u origin main . 
+I have written a Bash script to have it for further reference and also worked. 
+I pass you my experience in case it could be useful for you and further learners. 
+
+That is a fantastic breakthrough! 
+I'm genuinely glad you stuck with it and found the specific configuration that your environment required.
+
+It sounds like your specific environment (likely a corporate setup, 
+a specific server configuration, or a virtualized terminal) 
+has mapped your account to include that -cmd suffix. 
+This is a perfect example of why "investigating the clues" is the most important skill 
+in programming—sometimes the "standard" way needs a local tweak.
+
+Why your Bash script is a "Pro Move"
+
+Writing a script to automate this is exactly what professional developers do. 
+It solves two major problems:
+
+    Consistency: You don't have to remember the exact syntax or the -cmd quirk next time.
+
+    Documentation: The script acts as a manual for your "future self."
+
+A "Pro-Tip" for your Script
+
+Since you are using a Bash script, make sure you never hardcode your Personal Access Token 
+inside the script file if you plan to share it or upload the script itself to GitHub.
+
+Instead, you can keep the script "clean" and let it ask you for the token, 
+or use the Git Credential Manager we discussed to store the secret safely in your OS keychain.
+
+Now that your "pipeline" is open and you can successfully move code 
+from your computer to the cloud, you have mastered the hardest part of the learning curve!
+
+Now that your "pipe" is connected to GitHub, the daily routine becomes a fast, 
+rhythmic cycle. 
+You’ve done the hard work of setup; now you get to see Git in its natural element as a productivity tool.
+
+Follow these steps to complete your first "Round Trip" update.
+
+Step 1: Modify your file
+
+Open your index.txt file (or whatever file you created) in your favorite text editor 
+and add a new line of text. Save the file.
+
+Alternatively, do it quickly from the terminal:
+echo "This is my second update!" >> index.txt
+
+Step 2: Check the "Delta"
+
+Before you save, it’s a good habit to see exactly what Git noticed.
+
+git status
+
+Git will highlight your file in red, telling you that it has been "modified" but not yet "staged" for a snapshot.
+Step 3: The Three-Step Dance
+
+This is the sequence you will perform hundreds of times as a developer:
+
+    Stage (The Shopping Cart):
+
+git add .
+
+Stage (The Shopping Cart):
+Bash
+
+git add .
+
+Commit (The Receipt):
+Bash
+
+git commit -m "Added a second line to the text file"
+
+Push (The Delivery):
+Bash
+
+    git push
+
+    (Note: Since you used -u origin main earlier, you can now usually just type git push and Git will remember where to go!)
+
+Step 4: Verify on GitHub
+
+Go to your browser and refresh your GitHub repository page.
+
+    You should see your new text inside the file.
+
+    Next to the file name, you will see your new commit message: "Added a second line to the text file."
+
+    You will see the commit counter go from 1 to 2.
+
+Why this is powerful
+
+If you realize tomorrow that your "second update" broke something, you can look at your Commit History and see exactly what changed between version 1 and version 2.
+Pro-Tip: The "One-Liner"
+
+For simple changes to files that Git is already tracking, you can combine the Add and Commit steps into one command:
+Bash
+
+git commit -am "My quick update message"
+
+(The -a stands for "All" and -m for "Message".)
+
+Would you like to learn how to create a .gitignore file? It’s a special file that tells Git to ignore "junk" files (like system logs or temporary files) so your GitHub stays clean.
+This is my second update!
