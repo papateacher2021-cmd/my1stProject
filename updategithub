@@ -1,0 +1,40 @@
+#!/bin/bash
+
+
+# 1. Ask the user for the filename
+echo "Type the name of the file you want to update (e.g., index.txt):"
+read filename
+
+# 2. Check if the file actually exists
+if [ -f "$filename" ]; then
+    echo "What message would you like to add to $filename?"
+    read user_message
+
+    # 3. Append the message to the file
+    echo "$user_message" >> "$filename"
+    echo "Successfully updated $filename!"
+
+    # 4. Optional: Auto-Git workflow
+    git add "$filename"
+    git commit -m "Update $filename via script"
+    git push
+else
+    echo "Error: File '$filename' not found in this folder."
+fi
+
+# echo "This is the latest update >> MyFilenameGoesHere
+# To check up what Git has noticed:
+# git status
+
+#The three-step dance
+# 1.Stage (Shopping Cart):
+# git add .
+# 2.Commit (The receipt (checking out))
+# git commit -m "Content has been updated"
+# 3.Push (The Delivery):
+# git push
+# (Note: Since you used -u origin main earlier, 
+# you can now usually just type git push and Git will remember where to go!)
+echo "Go to your browser and refresh your GitHub repository page."
+echo "I should see my new file updated with my warning text."
+version 0-0
