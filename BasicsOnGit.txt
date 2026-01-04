@@ -1,0 +1,89 @@
+Q#1: What's Git?
+At its simplest, Git is a "save button" on steroids for your computer files.
+
+Technically, it is a Distributed Version Control System (DVCS). While mostly used by programmers to manage source code, it can track changes in any set of files.
+
+1. How it Works: The "Time Machine" Concept
+
+Imagine you are writing a book. Normally, if you delete a chapter and save the file, that chapter is gone. With Git, you take "snapshots" (called commits) of your work at different stages.
+
+    Snapshots: Instead of saving over the old file, Git remembers exactly what the project looked like at every commit.
+
+    Rewind: If you realize you made a huge mistake today, you can instantly "roll back" the entire project to exactly how it looked last Tuesday.
+
+    Branching: You can create a "branch" to experiment with a new idea without touching your main work. If the experiment fails, you delete the branch; if it works, you merge it back.
+
+2. Why is it "Distributed"?
+
+In older systems, there was one central server. If it went down, nobody could work. In Git, every contributor has a full copy of the entire project history on their own computer. You can work offline, commit changes locally, and then sync with others when you have an internet connection.
+3. Git vs. GitHub (The Common Confusion)
+
+People often use these terms interchangeably, but they are different:
+
+    Git: The local tool/software you install on your computer to track changes.
+
+    GitHub: A website (owned by Microsoft) that hosts Git "repositories" in the cloud. It’s like the "social media" or "Dropbox" for Git projects, making it easy to share code with others.
+
+4. Key Terms You’ll Hear
+Term	Meaning
+Repository (Repo)	The folder containing your project and its full history.
+Commit	A "snapshot" of your changes with a descriptive message.
+Staging Area	A "middle ground" where you pick which changes to include in your next snapshot.
+Push / Pull	Sending your local changes to a server (Push) or grabbing others' changes (Pull).
+
+
+
+Q#2: Please, walk me through the basic commands to set up my first Git repository
+
+Setting up your first repository is a quick process. 
+To get started, you’ll need to open your Terminal (on Mac/Linux) 
+or Command Prompt/Git Bash (on Windows).
+
+Step 1: Tell Git Who You Are
+Before you create anything, Git needs to know who is making the changes. 
+This information is attached to every "snapshot" you take.
+git config --global user.name "Your Name"
+git config --global user.email "youremail@example.com"
+
+Step 2: Create Your Project Folder
+Navigate to where you want your project to live and create a new directory.
+mkdir my-first-project
+cd my-first-project
+
+Step 3: Initialize the Repository
+This is the "magic" command. It creates a hidden .git folder inside your
+project. This folder tracks every change you make from now on.
+git init
+
+Step 4: The "Save" Workflow (Add & Commit)
+Git doesn't automatically save every tiny keystroke;
+you have to tell it which changes are important. 
+This is a two-step process:
+
+1. Create a file 
+Let's make a simple text file. echo "Hello Git" > index.txt
+
+2. Add it (The Staging Area):
+This tells Git, "I want to include this file in my next snapshot."
+git add index.txt
+
+3. Commit it (The Snapshot):
+This officially saves the snapshot to your history with a
+message. git commit -m "My very first commit"
+
+Useful Commands for Checking Progress
+
+As you work, you'll use these two commands constantly to see what’s happening:
+
+git status: Shows you which files have been modified, which are "staged" 
+for a commit, and which ones Git isn't tracking yet.
+
+git log: Shows you a list of all the snapshots (commits) you've taken so far, 
+including the date and your message.
+
+Summary Table   
+Command	        What it does
+git init	Turns a regular folder into a Git repository.
+git add <file>	Prepares a file to be saved (Staging).
+git commit -m "..."	Saves the snapshot permanently with a note.
+git status	Shows the current state of your files.
